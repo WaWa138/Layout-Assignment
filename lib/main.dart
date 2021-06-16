@@ -30,10 +30,10 @@ class _MyAppState extends State<MyApp> {
       body: Container(
         padding: EdgeInsets.all(30.0),
         child: GridView.count(crossAxisCount: 2, children: <Widget>[
-          MyMenu(
+          /*MyMenu(
               title: "LOCATION",
               icon: Icons.add_location_outlined,
-              warna: Colors.black),
+              warna: Colors.black),*/
           MyMenu(
               title: "SNOW",
               icon: Icons.ac_unit_rounded,
@@ -70,10 +70,11 @@ class _MyAppState extends State<MyApp> {
 
 class MyMenu extends StatelessWidget {
   MyMenu({this.title, this.icon, this.warna});
+  bool status = false;
 
   final String title;
   final IconData icon;
-  final MaterialColor warna;
+  final Color warna;
 
 
   @override
@@ -110,8 +111,8 @@ class MyMenu extends StatelessWidget {
              )*/
               Center(
                 child: Switch(
-                  value: false,
-                  onChanged: (bool value) {
+                  value: status,
+                  onChanged: (value) {
                     //setState(() {
                      // _value = value;
                     //});
@@ -120,8 +121,7 @@ class MyMenu extends StatelessWidget {
                   activeColor: Colors.green,
                 ),
               )
-            ], // activeTrackColor: Colors.lightGreenAccent,
-            //  activeColor: Colors.green,
+            ],
           ),
         ),
       ),
